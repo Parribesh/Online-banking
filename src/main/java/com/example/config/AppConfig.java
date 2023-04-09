@@ -28,9 +28,9 @@ public class AppConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/onlinebanking");
-		dataSource.setUsername("root");
-		dataSource.setPassword("merodesh");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/*********);// ******* => database name
+		dataSource.setUsername("******"); //update it with your db username
+		dataSource.setPassword("*******");// and passowrd
 		return dataSource;
 	}
 	
