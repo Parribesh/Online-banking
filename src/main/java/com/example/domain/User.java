@@ -3,13 +3,14 @@ package com.example.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -46,10 +47,8 @@ public class User {
 	@NotEmpty
 	private String userMobile;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	//go for a join table
-	
 	@NotNull
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	List<Role> userRoles = new ArrayList<>();
 	
 	
