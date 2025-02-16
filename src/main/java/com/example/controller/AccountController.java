@@ -117,6 +117,7 @@ public class AccountController {
 	
 	@GetMapping("api/account/accountForm")
 	public ModelAndView getAccountForm(Account account) {
+		System.out.println("Request to the faccountFrom Received...");
 		ModelAndView mv = new ModelAndView("accountForm");
 		var authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		var principal = SecurityContextHolder.getContext().getAuthentication().getName();

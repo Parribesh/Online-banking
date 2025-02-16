@@ -16,6 +16,9 @@
 	<name>OnlineBanking</name>
 	<description>Demo OnlineBanking Project for Spring Boot</description>
 	
+	<!-- Add the packaging tag here -->
+    <packaging>war</packaging>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -54,18 +57,17 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -108,6 +110,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+				<source>17</source>
+				<target>17</target>
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+						<version>1.18.36</version>
+                    </path>
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
 		</plugins>
 	</build>
 
